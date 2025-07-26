@@ -1,0 +1,97 @@
+module BlueHive
+  module Models
+    type provider_lookup_response =
+      {
+        count: Float,
+        providers: ::Array[BlueHive::Models::ProviderLookupResponse::Provider]
+      }
+
+    class ProviderLookupResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor count: Float
+
+      attr_accessor providers: ::Array[BlueHive::Models::ProviderLookupResponse::Provider]
+
+      def initialize: (
+        count: Float,
+        providers: ::Array[BlueHive::Models::ProviderLookupResponse::Provider]
+      ) -> void
+
+      def to_hash: -> {
+        count: Float,
+        providers: ::Array[BlueHive::Models::ProviderLookupResponse::Provider]
+      }
+
+      type provider =
+        {
+          :address_1 => String,
+          :address_2 => String,
+          city: String,
+          country: String,
+          distance: Float,
+          fax_number: String,
+          firstname: String,
+          lastname: String,
+          npi: String,
+          postal_code: String,
+          state_province: String,
+          work_phone: String
+        }
+
+      class Provider < BlueHive::Internal::Type::BaseModel
+        attr_accessor address_1: String
+
+        attr_accessor address_2: String
+
+        attr_accessor city: String
+
+        attr_accessor country: String
+
+        attr_accessor distance: Float
+
+        attr_accessor fax_number: String
+
+        attr_accessor firstname: String
+
+        attr_accessor lastname: String
+
+        attr_accessor npi: String
+
+        attr_accessor postal_code: String
+
+        attr_accessor state_province: String
+
+        attr_accessor work_phone: String
+
+        def initialize: (
+          address_1: String,
+          address_2: String,
+          city: String,
+          country: String,
+          distance: Float,
+          fax_number: String,
+          firstname: String,
+          lastname: String,
+          npi: String,
+          postal_code: String,
+          state_province: String,
+          work_phone: String
+        ) -> void
+
+        def to_hash: -> {
+          :address_1 => String,
+          :address_2 => String,
+          city: String,
+          country: String,
+          distance: Float,
+          fax_number: String,
+          firstname: String,
+          lastname: String,
+          npi: String,
+          postal_code: String,
+          state_province: String,
+          work_phone: String
+        }
+      end
+    end
+  end
+end

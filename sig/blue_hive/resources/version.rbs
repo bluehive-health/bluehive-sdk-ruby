@@ -1,0 +1,11 @@
+module BlueHive
+  module Resources
+    class Version
+      def retrieve: (
+        ?request_options: BlueHive::request_opts
+      ) -> BlueHive::Models::VersionRetrieveResponse
+
+      def initialize: (client: BlueHive::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,26 @@
+module BlueHive
+  module Models
+    type health_check_response =
+      { status: BlueHive::Models::HealthCheckResponse::status }
+
+    class HealthCheckResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor status: BlueHive::Models::HealthCheckResponse::status
+
+      def initialize: (
+        status: BlueHive::Models::HealthCheckResponse::status
+      ) -> void
+
+      def to_hash: -> { status: BlueHive::Models::HealthCheckResponse::status }
+
+      type status = :ok
+
+      module Status
+        extend BlueHive::Internal::Type::Enum
+
+        OK: :ok
+
+        def self?.values: -> ::Array[BlueHive::Models::HealthCheckResponse::status]
+      end
+    end
+  end
+end

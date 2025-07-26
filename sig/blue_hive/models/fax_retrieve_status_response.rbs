@@ -1,0 +1,115 @@
+module BlueHive
+  module Models
+    type fax_retrieve_status_response =
+      {
+        id: String,
+        created_at: String,
+        from: String,
+        provider: String,
+        status: BlueHive::Models::FaxRetrieveStatusResponse::status,
+        to: String,
+        updated_at: String,
+        cost: Float,
+        delivered_at: String,
+        duration: Float,
+        error_message: String,
+        page_count: Float,
+        provider_data: top
+      }
+
+    class FaxRetrieveStatusResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: String
+
+      attr_accessor from: String
+
+      attr_accessor provider: String
+
+      attr_accessor status: BlueHive::Models::FaxRetrieveStatusResponse::status
+
+      attr_accessor to: String
+
+      attr_accessor updated_at: String
+
+      attr_reader cost: Float?
+
+      def cost=: (Float) -> Float
+
+      attr_reader delivered_at: String?
+
+      def delivered_at=: (String) -> String
+
+      attr_reader duration: Float?
+
+      def duration=: (Float) -> Float
+
+      attr_reader error_message: String?
+
+      def error_message=: (String) -> String
+
+      attr_reader page_count: Float?
+
+      def page_count=: (Float) -> Float
+
+      attr_reader provider_data: top?
+
+      def provider_data=: (top) -> top
+
+      def initialize: (
+        id: String,
+        created_at: String,
+        from: String,
+        provider: String,
+        status: BlueHive::Models::FaxRetrieveStatusResponse::status,
+        to: String,
+        updated_at: String,
+        ?cost: Float,
+        ?delivered_at: String,
+        ?duration: Float,
+        ?error_message: String,
+        ?page_count: Float,
+        ?provider_data: top
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: String,
+        from: String,
+        provider: String,
+        status: BlueHive::Models::FaxRetrieveStatusResponse::status,
+        to: String,
+        updated_at: String,
+        cost: Float,
+        delivered_at: String,
+        duration: Float,
+        error_message: String,
+        page_count: Float,
+        provider_data: top
+      }
+
+      type status =
+        :queued
+        | :dialing
+        | :sending
+        | :delivered
+        | :failed
+        | :cancelled
+        | :retrying
+
+      module Status
+        extend BlueHive::Internal::Type::Enum
+
+        QUEUED: :queued
+        DIALING: :dialing
+        SENDING: :sending
+        DELIVERED: :delivered
+        FAILED: :failed
+        CANCELLED: :cancelled
+        RETRYING: :retrying
+
+        def self?.values: -> ::Array[BlueHive::Models::FaxRetrieveStatusResponse::status]
+      end
+    end
+  end
+end

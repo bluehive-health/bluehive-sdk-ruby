@@ -1,0 +1,38 @@
+module BlueHive
+  module Models
+    type fax_list_providers_response =
+      {
+        providers: ::Array[BlueHive::Models::FaxListProvidersResponse::Provider]
+      }
+
+    class FaxListProvidersResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor providers: ::Array[BlueHive::Models::FaxListProvidersResponse::Provider]
+
+      def initialize: (
+        providers: ::Array[BlueHive::Models::FaxListProvidersResponse::Provider]
+      ) -> void
+
+      def to_hash: -> {
+        providers: ::Array[BlueHive::Models::FaxListProvidersResponse::Provider]
+      }
+
+      type provider = { configured: bool, is_default: bool, name: String }
+
+      class Provider < BlueHive::Internal::Type::BaseModel
+        attr_accessor configured: bool
+
+        attr_accessor is_default: bool
+
+        attr_accessor name: String
+
+        def initialize: (
+          configured: bool,
+          is_default: bool,
+          name: String
+        ) -> void
+
+        def to_hash: -> { configured: bool, is_default: bool, name: String }
+      end
+    end
+  end
+end

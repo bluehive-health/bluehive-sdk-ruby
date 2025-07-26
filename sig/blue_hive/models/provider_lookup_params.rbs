@@ -1,0 +1,44 @@
+module BlueHive
+  module Models
+    type provider_lookup_params =
+      { firstname: String, lastname: String, npi: String, zipcode: String }
+      & BlueHive::Internal::Type::request_parameters
+
+    class ProviderLookupParams < BlueHive::Internal::Type::BaseModel
+      extend BlueHive::Internal::Type::RequestParameters::Converter
+      include BlueHive::Internal::Type::RequestParameters
+
+      attr_reader firstname: String?
+
+      def firstname=: (String) -> String
+
+      attr_reader lastname: String?
+
+      def lastname=: (String) -> String
+
+      attr_reader npi: String?
+
+      def npi=: (String) -> String
+
+      attr_reader zipcode: String?
+
+      def zipcode=: (String) -> String
+
+      def initialize: (
+        ?firstname: String,
+        ?lastname: String,
+        ?npi: String,
+        ?zipcode: String,
+        ?request_options: BlueHive::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        firstname: String,
+        lastname: String,
+        npi: String,
+        zipcode: String,
+        request_options: BlueHive::RequestOptions
+      }
+    end
+  end
+end

@@ -1,0 +1,75 @@
+module BlueHive
+  module Models
+    type fax_send_response =
+      {
+        id: String,
+        created_at: String,
+        from: String,
+        provider: String,
+        status: BlueHive::Models::FaxSendResponse::status,
+        to: String,
+        estimated_delivery: String
+      }
+
+    class FaxSendResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: String
+
+      attr_accessor from: String
+
+      attr_accessor provider: String
+
+      attr_accessor status: BlueHive::Models::FaxSendResponse::status
+
+      attr_accessor to: String
+
+      attr_reader estimated_delivery: String?
+
+      def estimated_delivery=: (String) -> String
+
+      def initialize: (
+        id: String,
+        created_at: String,
+        from: String,
+        provider: String,
+        status: BlueHive::Models::FaxSendResponse::status,
+        to: String,
+        ?estimated_delivery: String
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: String,
+        from: String,
+        provider: String,
+        status: BlueHive::Models::FaxSendResponse::status,
+        to: String,
+        estimated_delivery: String
+      }
+
+      type status =
+        :queued
+        | :dialing
+        | :sending
+        | :delivered
+        | :failed
+        | :cancelled
+        | :retrying
+
+      module Status
+        extend BlueHive::Internal::Type::Enum
+
+        QUEUED: :queued
+        DIALING: :dialing
+        SENDING: :sending
+        DELIVERED: :delivered
+        FAILED: :failed
+        CANCELLED: :cancelled
+        RETRYING: :retrying
+
+        def self?.values: -> ::Array[BlueHive::Models::FaxSendResponse::status]
+      end
+    end
+  end
+end

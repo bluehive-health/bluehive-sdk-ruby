@@ -1,0 +1,15 @@
+module BlueHive
+  module Models
+    type database_check_health_params =
+      {  } & BlueHive::Internal::Type::request_parameters
+
+    class DatabaseCheckHealthParams < BlueHive::Internal::Type::BaseModel
+      extend BlueHive::Internal::Type::RequestParameters::Converter
+      include BlueHive::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: BlueHive::request_opts) -> void
+
+      def to_hash: -> { request_options: BlueHive::RequestOptions }
+    end
+  end
+end

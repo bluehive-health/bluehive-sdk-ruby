@@ -1,0 +1,25 @@
+module BlueHive
+  module Resources
+    class Fax
+      def list_providers: (
+        ?request_options: BlueHive::request_opts
+      ) -> BlueHive::Models::FaxListProvidersResponse
+
+      def retrieve_status: (
+        String id,
+        ?request_options: BlueHive::request_opts
+      ) -> BlueHive::Models::FaxRetrieveStatusResponse
+
+      def send_: (
+        document: BlueHive::FaxSendParams::Document,
+        to: String,
+        ?from: String,
+        ?provider: String,
+        ?subject: String,
+        ?request_options: BlueHive::request_opts
+      ) -> BlueHive::Models::FaxSendResponse
+
+      def initialize: (client: BlueHive::Client) -> void
+    end
+  end
+end
