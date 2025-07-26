@@ -1,0 +1,87 @@
+module BlueHive
+  module Models
+    type database_check_health_response =
+      {
+        status: BlueHive::Models::DatabaseCheckHealthResponse::status,
+        timestamp: String,
+        database: String,
+        error: String,
+        stats: BlueHive::Models::DatabaseCheckHealthResponse::Stats
+      }
+
+    class DatabaseCheckHealthResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor status: BlueHive::Models::DatabaseCheckHealthResponse::status
+
+      attr_accessor timestamp: String
+
+      attr_reader database: String?
+
+      def database=: (String) -> String
+
+      attr_reader error: String?
+
+      def error=: (String) -> String
+
+      attr_reader stats: BlueHive::Models::DatabaseCheckHealthResponse::Stats?
+
+      def stats=: (
+        BlueHive::Models::DatabaseCheckHealthResponse::Stats
+      ) -> BlueHive::Models::DatabaseCheckHealthResponse::Stats
+
+      def initialize: (
+        status: BlueHive::Models::DatabaseCheckHealthResponse::status,
+        timestamp: String,
+        ?database: String,
+        ?error: String,
+        ?stats: BlueHive::Models::DatabaseCheckHealthResponse::Stats
+      ) -> void
+
+      def to_hash: -> {
+        status: BlueHive::Models::DatabaseCheckHealthResponse::status,
+        timestamp: String,
+        database: String,
+        error: String,
+        stats: BlueHive::Models::DatabaseCheckHealthResponse::Stats
+      }
+
+      type status = :ok | :error
+
+      module Status
+        extend BlueHive::Internal::Type::Enum
+
+        OK: :ok
+        ERROR: :error
+
+        def self?.values: -> ::Array[BlueHive::Models::DatabaseCheckHealthResponse::status]
+      end
+
+      type stats = { collections: Float, data_size: Float, documents: Float }
+
+      class Stats < BlueHive::Internal::Type::BaseModel
+        attr_reader collections: Float?
+
+        def collections=: (Float) -> Float
+
+        attr_reader data_size: Float?
+
+        def data_size=: (Float) -> Float
+
+        attr_reader documents: Float?
+
+        def documents=: (Float) -> Float
+
+        def initialize: (
+          ?collections: Float,
+          ?data_size: Float,
+          ?documents: Float
+        ) -> void
+
+        def to_hash: -> {
+          collections: Float,
+          data_size: Float,
+          documents: Float
+        }
+      end
+    end
+  end
+end

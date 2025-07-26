@@ -1,0 +1,62 @@
+module BlueHive
+  module Internal
+    module Type
+      module Converter
+        extend BlueHive::Internal::Util::SorbetRuntimeSupport
+
+        type input = BlueHive::Internal::Type::Converter | Class
+
+        type coerce_state =
+          {
+            translate_names: bool,
+            strictness: bool,
+            exactness: { yes: Integer, no: Integer, maybe: Integer },
+            error: Class,
+            branched: Integer
+          }
+
+        type dump_state = { can_retry: bool }
+
+        def coerce: (
+          top value,
+          state: BlueHive::Internal::Type::Converter::coerce_state
+        ) -> top
+
+        def dump: (
+          top value,
+          state: BlueHive::Internal::Type::Converter::dump_state
+        ) -> top
+
+        def inspect: (?depth: Integer) -> String
+
+        def self.type_info: (
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> BlueHive::Internal::Type::Converter::input?,
+            union: ^-> BlueHive::Internal::Type::Converter::input?
+          }
+          | ^-> BlueHive::Internal::Type::Converter::input
+          | BlueHive::Internal::Type::Converter::input spec
+        ) -> (^-> top)
+
+        def self.new_coerce_state: (
+          ?translate_names: bool
+        ) -> BlueHive::Internal::Type::Converter::coerce_state
+
+        def self.coerce: (
+          BlueHive::Internal::Type::Converter::input target,
+          top value,
+          ?state: BlueHive::Internal::Type::Converter::coerce_state
+        ) -> top
+
+        def self.dump: (
+          BlueHive::Internal::Type::Converter::input target,
+          top value,
+          ?state: BlueHive::Internal::Type::Converter::dump_state
+        ) -> top
+
+        def self.inspect: (top target, depth: Integer) -> String
+      end
+    end
+  end
+end

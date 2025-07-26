@@ -1,0 +1,11 @@
+module BlueHive
+  module Resources
+    class Database
+      def check_health: (
+        ?request_options: BlueHive::request_opts
+      ) -> BlueHive::Models::DatabaseCheckHealthResponse
+
+      def initialize: (client: BlueHive::Client) -> void
+    end
+  end
+end

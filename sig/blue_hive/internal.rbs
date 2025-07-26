@@ -1,0 +1,9 @@
+module BlueHive
+  module Internal
+    extend BlueHive::Internal::Util::SorbetRuntimeSupport
+
+    type file_input = Pathname | StringIO | IO | String | BlueHive::FilePart
+
+    OMIT: Object
+  end
+end

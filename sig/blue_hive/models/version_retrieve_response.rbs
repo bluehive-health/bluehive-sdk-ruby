@@ -1,0 +1,13 @@
+module BlueHive
+  module Models
+    type version_retrieve_response = { version: String }
+
+    class VersionRetrieveResponse < BlueHive::Internal::Type::BaseModel
+      attr_accessor version: String
+
+      def initialize: (version: String) -> void
+
+      def to_hash: -> { version: String }
+    end
+  end
+end

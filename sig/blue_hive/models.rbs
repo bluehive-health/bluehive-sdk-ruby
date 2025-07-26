@@ -1,0 +1,15 @@
+module BlueHive
+  class DatabaseCheckHealthParams = BlueHive::Models::DatabaseCheckHealthParams
+
+  class FaxListProvidersParams = BlueHive::Models::FaxListProvidersParams
+
+  class FaxRetrieveStatusParams = BlueHive::Models::FaxRetrieveStatusParams
+
+  class FaxSendParams = BlueHive::Models::FaxSendParams
+
+  class HealthCheckParams = BlueHive::Models::HealthCheckParams
+
+  class ProviderLookupParams = BlueHive::Models::ProviderLookupParams
+
+  class VersionRetrieveParams = BlueHive::Models::VersionRetrieveParams
+end

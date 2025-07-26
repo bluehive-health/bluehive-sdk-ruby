@@ -1,0 +1,104 @@
+module BlueHive
+  module Models
+    type fax_send_params =
+      {
+        document: BlueHive::FaxSendParams::Document,
+        to: String,
+        from: String,
+        provider: String,
+        subject: String
+      }
+      & BlueHive::Internal::Type::request_parameters
+
+    class FaxSendParams < BlueHive::Internal::Type::BaseModel
+      extend BlueHive::Internal::Type::RequestParameters::Converter
+      include BlueHive::Internal::Type::RequestParameters
+
+      attr_accessor document: BlueHive::FaxSendParams::Document
+
+      attr_accessor to: String
+
+      attr_reader from: String?
+
+      def from=: (String) -> String
+
+      attr_reader provider: String?
+
+      def provider=: (String) -> String
+
+      attr_reader subject: String?
+
+      def subject=: (String) -> String
+
+      def initialize: (
+        document: BlueHive::FaxSendParams::Document,
+        to: String,
+        ?from: String,
+        ?provider: String,
+        ?subject: String,
+        ?request_options: BlueHive::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        document: BlueHive::FaxSendParams::Document,
+        to: String,
+        from: String,
+        provider: String,
+        subject: String,
+        request_options: BlueHive::RequestOptions
+      }
+
+      type document =
+        {
+          content: String,
+          content_type: BlueHive::Models::FaxSendParams::Document::content_type,
+          filename: String
+        }
+
+      class Document < BlueHive::Internal::Type::BaseModel
+        attr_accessor content: String
+
+        attr_accessor content_type: BlueHive::Models::FaxSendParams::Document::content_type
+
+        attr_reader filename: String?
+
+        def filename=: (String) -> String
+
+        def initialize: (
+          content: String,
+          content_type: BlueHive::Models::FaxSendParams::Document::content_type,
+          ?filename: String
+        ) -> void
+
+        def to_hash: -> {
+          content: String,
+          content_type: BlueHive::Models::FaxSendParams::Document::content_type,
+          filename: String
+        }
+
+        type content_type =
+          :"application/pdf"
+          | :"image/tiff"
+          | :"image/tif"
+          | :"image/jpeg"
+          | :"image/jpg"
+          | :"image/png"
+          | :"text/plain"
+
+        module ContentType
+          extend BlueHive::Internal::Type::Enum
+
+          APPLICATION_PDF: :"application/pdf"
+          IMAGE_TIFF: :"image/tiff"
+          IMAGE_TIF: :"image/tif"
+          IMAGE_JPEG: :"image/jpeg"
+          IMAGE_JPG: :"image/jpg"
+          IMAGE_PNG: :"image/png"
+          TEXT_PLAIN: :"text/plain"
+
+          def self?.values: -> ::Array[BlueHive::Models::FaxSendParams::Document::content_type]
+        end
+      end
+    end
+  end
+end
