@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.1-alpha.2 (2025-08-02)
+
+Full Changelog: [v0.0.1-alpha.1...v0.0.1-alpha.2](https://github.com/bluehive-health/bluehive-sdk-ruby/compare/v0.0.1-alpha.1...v0.0.1-alpha.2)
+
+### Chores
+
+* **internal:** increase visibility of internal helper method ([192f1d7](https://github.com/bluehive-health/bluehive-sdk-ruby/commit/192f1d7a4c1057b2b540db90ec610a99cc8bc68b))
+
 ## 0.0.1-alpha.1 (2025-07-29)
 
 Full Changelog: [v0.0.1-alpha.0...v0.0.1-alpha.1](https://github.com/bluehive-health/bluehive-sdk-ruby/compare/v0.0.1-alpha.0...v0.0.1-alpha.1)
