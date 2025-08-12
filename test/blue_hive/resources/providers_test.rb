@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class BlueHive::Test::Resources::ProvidersTest < BlueHive::Test::ResourceTest
   def test_lookup
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @blue_hive.providers.lookup
 
