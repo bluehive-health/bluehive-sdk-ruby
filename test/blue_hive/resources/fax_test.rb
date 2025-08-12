@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class BlueHive::Test::Resources::FaxTest < BlueHive::Test::ResourceTest
   def test_list_providers
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @blue_hive.fax.list_providers
 
@@ -20,7 +20,7 @@ class BlueHive::Test::Resources::FaxTest < BlueHive::Test::ResourceTest
   end
 
   def test_retrieve_status
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @blue_hive.fax.retrieve_status("id")
 
@@ -48,7 +48,7 @@ class BlueHive::Test::Resources::FaxTest < BlueHive::Test::ResourceTest
   end
 
   def test_send__required_params
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response =
       @blue_hive.fax.send_(document: {content: "content", contentType: :"application/pdf"}, to: "to")
