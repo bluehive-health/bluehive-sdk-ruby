@@ -39,6 +39,23 @@ module BlueHive
           | BlueHive::Internal::Type::Converter::input spec
         ) -> (^-> top)
 
+        def self.meta_info: (
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> BlueHive::Internal::Type::Converter::input?,
+            union: ^-> BlueHive::Internal::Type::Converter::input?
+          }
+          | ^-> BlueHive::Internal::Type::Converter::input
+          | BlueHive::Internal::Type::Converter::input type_info,
+          {
+            const: (nil | bool | Integer | Float | Symbol)?,
+            enum: ^-> BlueHive::Internal::Type::Converter::input?,
+            union: ^-> BlueHive::Internal::Type::Converter::input?
+          }
+          | ^-> BlueHive::Internal::Type::Converter::input
+          | BlueHive::Internal::Type::Converter::input spec
+        ) -> ::Hash[Symbol, top]
+
         def self.new_coerce_state: (
           ?translate_names: bool
         ) -> BlueHive::Internal::Type::Converter::coerce_state

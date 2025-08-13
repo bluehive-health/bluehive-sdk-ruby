@@ -92,6 +92,60 @@ module BlueHive
 
           # @api private
           sig do
+            params(
+              type_info:
+                T.any(
+                  {
+                    const:
+                      T.nilable(
+                        T.any(NilClass, T::Boolean, Integer, Float, Symbol)
+                      ),
+                    enum:
+                      T.nilable(
+                        T.proc.returns(
+                          BlueHive::Internal::Type::Converter::Input
+                        )
+                      ),
+                    union:
+                      T.nilable(
+                        T.proc.returns(
+                          BlueHive::Internal::Type::Converter::Input
+                        )
+                      )
+                  },
+                  T.proc.returns(BlueHive::Internal::Type::Converter::Input),
+                  BlueHive::Internal::Type::Converter::Input
+                ),
+              spec:
+                T.any(
+                  {
+                    const:
+                      T.nilable(
+                        T.any(NilClass, T::Boolean, Integer, Float, Symbol)
+                      ),
+                    enum:
+                      T.nilable(
+                        T.proc.returns(
+                          BlueHive::Internal::Type::Converter::Input
+                        )
+                      ),
+                    union:
+                      T.nilable(
+                        T.proc.returns(
+                          BlueHive::Internal::Type::Converter::Input
+                        )
+                      )
+                  },
+                  T.proc.returns(BlueHive::Internal::Type::Converter::Input),
+                  BlueHive::Internal::Type::Converter::Input
+                )
+            ).returns(BlueHive::Internal::AnyHash)
+          end
+          def self.meta_info(type_info, spec)
+          end
+
+          # @api private
+          sig do
             params(translate_names: T::Boolean).returns(
               BlueHive::Internal::Type::Converter::CoerceState
             )
